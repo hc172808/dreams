@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:layout_gravity="center" android:background="@color/colorAccent" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentTop="true">
+        <LinearLayout android:orientation="vertical" android:padding="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="30.0dip">
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textColor="@color/whiteTextColor" android:text="Reset\nyour Account\nPassword? " android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/viewParent.headerText.NoMode" />
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_login_hero" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" app:cardBackgroundColor="@color/whiteTextColor" app:cardCornerRadius="10.0dip">
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip">
+                    <com.google.android.material.textfield.TextInputLayout android:id="@id/textInputNewPassword" android:layout_marginTop="@dimen/loginViewsMargin" style="@style/parent">
+                        <EditText android:id="@id/editTextNewPassword" android:hint="New Password" android:maxLines="1" android:inputType="textPassword" style="@style/modifiedEditText" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout android:id="@id/textInputConfirmPassword" android:layout_marginTop="@dimen/loginViewsMargin" style="@style/parent">
+                        <EditText android:id="@id/editTextConfirmPassword" android:hint="Confirm Password" android:maxLines="1" android:inputType="textPassword" style="@style/modifiedEditText" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton android:layout_gravity="center_horizontal" android:id="@id/submitButton" android:layout_marginTop="@dimen/loginViewsMargin" android:text="Submit" app:initialCornerAngle="27.0dip" app:spinning_bar_color="#ffffffff" app:spinning_bar_padding="6.0dip" app:spinning_bar_width="4.0dip" style="@style/loginButton" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+    <View android:background="@drawable/ic_side_bg" android:layout_width="11.0dip" android:layout_height="fill_parent" android:layout_marginTop="20.0dip" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="11.0dip" android:layout_marginBottom="30.0dip" android:src="@drawable/ic_back_img" android:adjustViewBounds="false" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true" android:onClick="onLoginClick" />
+</RelativeLayout>

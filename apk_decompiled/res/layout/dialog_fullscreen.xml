@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/black" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.definiteautomation.dreamludofantacy.view.TouchImageView android:layout_gravity="center" android:id="@id/photoIv" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/placeholder_post" />
+    <View android:background="#40000000" android:layout_width="fill_parent" android:layout_height="@dimen/spacing_xxlarge" android:layout_alignParentTop="true" />
+    <ImageButton android:id="@id/closeBt" android:background="?selectableItemBackgroundBorderless" android:layout_width="@dimen/spacing_xxlarge" android:layout_height="@dimen/spacing_xxlarge" android:layout_margin="@dimen/spacing_small" android:tint="@android:color/white" android:layout_alignParentTop="true" android:layout_alignParentEnd="true" app:srcCompat="@drawable/ic_close" />
+</RelativeLayout>

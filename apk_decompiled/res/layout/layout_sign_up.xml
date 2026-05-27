@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentTop="true">
+        <LinearLayout android:orientation="vertical" android:padding="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="30.0dip">
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textColor="@color/whiteTextColor" android:text="Here’s\nyour first\nstep with \nus! " android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/viewParent.headerText.NoMode" />
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_login_hero" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" app:cardBackgroundColor="@color/whiteTextColor" app:cardCornerRadius="10.0dip">
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip">
+                    <com.google.android.material.textfield.TextInputLayout android:id="@id/textInputName" android:layout_marginTop="@dimen/loginViewsMargin" style="@style/parent">
+                        <EditText android:id="@id/editTextName" android:hint="Name" android:maxLines="1" android:inputType="textPersonName" style="@style/modifiedEditText" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout android:id="@id/textInputEmail" android:layout_marginTop="@dimen/loginViewsMargin" style="@style/parent">
+                        <EditText android:id="@id/editTextEmail" android:hint="@string/login_email_hint" android:maxLines="1" android:inputType="textEmailAddress" style="@style/modifiedEditText" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <LinearLayout android:orientation="horizontal" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="13.0dip" android:layout_weight="2.0">
+                            <TextView android:textSize="12.0sp" android:textColor="?android:textColorHint" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Country Code" android:textAlignment="textStart" android:layout_marginStart="5.0dip" android:layout_marginEnd="0.0dip" />
+                            <com.hbb20.CountryCodePicker android:id="@id/countryCodePicker" android:layout_width="fill_parent" android:layout_height="wrap_content" app:ccp_defaultPhoneCode="91" app:ccp_showFlag="true" app:ccp_showNameCode="false" app:ccp_showPhoneCode="true" app:ccp_textSize="@dimen/newsMoreTextSize" />
+                            <View android:background="@color/colorAccent" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginStart="4.0dip" android:layout_marginEnd="0.0dip" />
+                        </LinearLayout>
+                        <View android:layout_width="10.0dip" android:layout_height="1.0dip" />
+                        <com.google.android.material.textfield.TextInputLayout android:id="@id/textInputMobile" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/loginViewsMargin" android:layout_weight="1.0">
+                            <EditText android:id="@id/editTextMobile" android:hint="Mobile" android:maxLines="1" android:inputType="phone" style="@style/modifiedEditText" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                    <com.google.android.material.textfield.TextInputLayout android:id="@id/textInputPassword" android:layout_marginTop="@dimen/loginViewsMargin" style="@style/parent">
+                        <EditText android:id="@id/editTextPassword" android:hint="@string/login_password_hint" android:maxLines="1" android:inputType="textPassword" style="@style/modifiedEditText" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout android:id="@id/textInputReferral" android:visibility="gone" android:layout_marginTop="@dimen/loginViewsMargin" style="@style/parent">
+                        <EditText android:id="@id/editTextReferral" android:hint="Referral Code (Optinal)" android:maxLines="1" android:inputType="text" style="@style/modifiedEditText" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton android:layout_gravity="center_horizontal" android:id="@id/registerButton" android:layout_marginTop="@dimen/loginViewsMargin" android:text="Register" android:onClick="onMainClick" app:initialCornerAngle="27.0dip" app:spinning_bar_color="#ffffffff" app:spinning_bar_padding="6.0dip" app:spinning_bar_width="4.0dip" style="@style/loginButton" />
+                    <TextView android:textSize="17.0sp" android:textStyle="bold" android:textColor="@color/colorAccent" android:layout_marginTop="@dimen/loginViewsMargin" android:text="Already have an account?" android:onClick="onLoginClick" android:textAlignment="center" style="@style/parent" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="30.0dip" android:weightSum="12.0">
+                <View android:background="@color/whiteTextColor" android:layout_width="0.0dip" android:layout_height="1.0dip" android:layout_weight="6.0" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/whiteTextColor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Use other Methods" android:layout_weight="3.0" android:textAlignment="center" style="@style/viewParent.headerText.NoMode" />
+                <View android:background="@color/whiteTextColor" android:layout_width="0.0dip" android:layout_height="1.0dip" android:layout_weight="6.0" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:layout_marginBottom="30.0dip">
+                <ImageView android:id="@id/btnFb" android:background="@drawable/bg_facebook" android:padding="11.0dip" android:layout_width="44.0dip" android:layout_height="44.0dip" android:src="@drawable/ic_facebook" android:layout_marginStart="5.0dip" android:layout_marginEnd="5.0dip" app:tint="@color/white" />
+                <ImageView android:id="@id/btnGoogle" android:background="@drawable/bg_google" android:padding="11.0dip" android:layout_width="44.0dip" android:layout_height="44.0dip" android:src="@drawable/ic_google" android:layout_marginStart="5.0dip" android:layout_marginEnd="5.0dip" app:tint="@color/white" />
+                <com.facebook.login.widget.LoginButton android:id="@id/btnSignInFB" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+                <com.google.android.gms.common.SignInButton android:id="@id/btnSignInGoogle" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <View android:background="@drawable/ic_side_bg" android:layout_width="11.0dip" android:layout_height="fill_parent" android:layout_marginTop="20.0dip" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="11.0dip" android:layout_marginBottom="30.0dip" android:src="@drawable/ic_back_img" android:adjustViewBounds="false" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true" android:onClick="onLoginClick" />
+</RelativeLayout>

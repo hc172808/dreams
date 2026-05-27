@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.mikhaellopez.circularimageview.CircularImageView android:id="@id/custom_bar_image" android:layout_width="36.0dip" android:layout_height="36.0dip" android:layout_marginRight="14.0dip" android:layout_alignBottom="@id/custom_bar_seen" android:layout_alignParentRight="true" android:layout_marginEnd="14.0dip" android:layout_alignParentEnd="true" />
+    <TextView android:textSize="18.0sp" android:textColor="@android:color/white" android:id="@id/custom_bar_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:layout_alignParentStart="true" />
+    <TextView android:textSize="13.0sp" android:textColor="@android:color/white" android:id="@id/custom_bar_seen" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_below="@id/custom_bar_title" android:layout_alignParentLeft="true" android:layout_alignParentStart="true" />
+</RelativeLayout>

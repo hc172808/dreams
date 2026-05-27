@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.Toolbar android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" android:id="@id/chat_app_bar" android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout android:id="@id/message_swipe_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/linearLayout" android:layout_below="@id/chat_app_bar" android:layout_alignParentStart="true">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/messages_list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/linearLayout" android:layout_below="@id/chat_app_bar" android:layout_alignParentLeft="true" android:layout_alignParentStart="true" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/linearLayout" android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="wrap_content" android:weightSum="10.0" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true" android:layout_alignParentStart="true">
+        <ImageButton android:id="@id/chat_add_btn" android:background="@android:color/white" android:padding="10.0dip" android:layout_width="@android:dimen/app_icon_size" android:layout_height="@android:dimen/app_icon_size" android:layout_weight="1.0" android:alpha="0.5" app:srcCompat="@drawable/ic_action_add" />
+        <EditText android:id="@id/chat_message_view" android:background="@android:color/white" android:paddingLeft="10.0dip" android:paddingTop="14.0dip" android:paddingRight="10.0dip" android:paddingBottom="12.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:hint="Enter Message..." android:ems="10" android:layout_weight="8.0" android:inputType="textPersonName" />
+        <ImageButton android:id="@id/chat_send_btn" android:background="@android:color/white" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" android:alpha="0.5" app:srcCompat="@drawable/ic_action_send" />
+    </LinearLayout>
+</RelativeLayout>

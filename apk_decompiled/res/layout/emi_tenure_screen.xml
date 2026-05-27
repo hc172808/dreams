@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/emi_tenure_select_row_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:pptextview="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/emi_amount_layout" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_emi_tenure_margin" android:layout_marginTop="@dimen/dimen_10dp" android:layout_marginRight="@dimen/dimen_emi_tenure_margin" android:layout_alignParentTop="true" layout="@layout/amount_layout" />
+    <include android:id="@id/ll_footer" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/footer_checkout_layout" />
+    <com.payumoney.sdkui.ui.widgets.CustomDrawableTextView android:enabled="false" android:textSize="@dimen/dimen_17sp" android:textColor="@color/payumoney_white" android:gravity="center" android:id="@id/btn_emi_tenure_continue" android:paddingTop="@dimen/dimen_10dp" android:paddingBottom="@dimen/dimen_10dp" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_emi_tenure_margin" android:layout_marginTop="@dimen/dimen_10dp" android:layout_marginRight="@dimen/dimen_emi_tenure_margin" android:layout_marginBottom="@dimen/dimen_10dp" android:text="@string/btn_continue" android:layout_above="@id/ll_footer" pptextview:bgColor="?colorPrimary" pptextview:borderOnly="false" />
+    <LinearLayout android:orientation="vertical" android:background="@color/emi_tenure_select_row_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_emi_tenure_margin" android:layout_marginTop="@dimen/dimen_10dp" android:layout_marginRight="@dimen/dimen_emi_tenure_margin" android:layout_above="@id/btn_emi_tenure_continue" android:layout_below="@id/emi_amount_layout">
+        <LinearLayout android:orientation="vertical" android:background="@android:color/white" android:paddingLeft="@dimen/dimen_emi_tenure_margin" android:paddingTop="10.0dip" android:paddingRight="@dimen/dimen_emi_tenure_margin2" android:paddingBottom="0.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="horizontal" android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dimen_10dp">
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_10dp" android:src="@drawable/ic_done_black_24dp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/emi_screen_select_tenure" />
+            </LinearLayout>
+            <RelativeLayout android:orientation="horizontal" android:id="@id/emi_selected_bank_name" android:background="@drawable/bg_rounded_grey_border" android:padding="@dimen/dimen_10dp" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:id="@id/tv_emi_selected_bank_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_10dp" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_10dp" android:src="@drawable/down_arrow" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <include layout="@layout/emi_tenure_layout_header" />
+            <View android:background="@color/emi_tenure_select_row_bg" android:layout_width="fill_parent" android:layout_height="@dimen/dimen_2dp" />
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/emi_tenures_recycler_view" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <androidx.appcompat.widget.Toolbar android:gravity="center_vertical" android:id="@id/toolbar" android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="?actionBarSize" app:layout_collapseMode="pin" app:layout_scrollFlags="scroll|enterAlways" app:theme="@style/ToolbarTheme" app:title="Contest Details" />
+    <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/playBt" android:layout_below="@id/toolbar">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="20.0sp" android:textStyle="normal" android:textColor="@color/green" android:gravity="center" android:layout_gravity="center" android:id="@id/timerTv" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="01m 10s" />
+            <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="20.0dip" android:foreground="?android:selectableItemBackground" app:cardCornerRadius="3.0sp" app:cardPreventCornerOverlap="true">
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <LinearLayout android:layout_gravity="center" android:background="@color/colorPrimaryDark" android:layout_width="fill_parent" android:layout_height="30.0dip">
+                        <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center_horizontal" android:layout_gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Table &amp; Opponen Details" />
+                    </LinearLayout>
+                    <View android:background="#ffb5b5b5" android:layout_width="fill_parent" android:layout_height="0.5sp" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" />
+                    <LinearLayout android:gravity="center" android:layout_gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip">
+                        <TextView android:textSize="16.0sp" android:textStyle="normal" android:id="@id/nameTv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Player1 Vs Player2" android:layout_marginStart="10.0dip" />
+                    </LinearLayout>
+                    <View android:background="#ffb5b5b5" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" />
+                    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:weightSum="3.0">
+                        <RelativeLayout android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginBottom="10.0dip" android:layout_weight="2.0" android:layout_marginStart="10.0dip">
+                            <ImageView android:id="@id/prizeIv" android:layout_width="30.0dip" android:layout_height="30.0dip" android:scaleType="fitXY" android:layout_centerVertical="true" app:srcCompat="@drawable/winner" />
+                            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" android:layout_toEndOf="@id/prizeIv">
+                                <TextView android:textSize="12.0sp" android:textStyle="normal" android:textColor="#ffa6a6a6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Win" android:layout_marginStart="10.0dip" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                        <RelativeLayout android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginBottom="10.0dip" android:layout_weight="1.0" android:layout_marginEnd="10.0dip">
+                            <TextView android:textSize="16.0sp" android:textStyle="normal" android:textColor="@color/colorPrimaryDark" android:gravity="center_vertical" android:id="@id/prizeTv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="₹ 0.00" android:layout_centerVertical="true" android:layout_alignParentEnd="true" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <View android:background="#ffb5b5b5" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" />
+                    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:weightSum="3.0">
+                        <RelativeLayout android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginBottom="10.0dip" android:layout_weight="2.0" android:layout_marginStart="10.0dip">
+                            <ImageView android:id="@id/boardIv" android:layout_width="30.0dip" android:layout_height="30.0dip" android:scaleType="fitXY" android:layout_centerVertical="true" app:srcCompat="@drawable/table_games" />
+                            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" android:layout_toEndOf="@id/boardIv">
+                                <TextView android:textSize="12.0sp" android:textStyle="normal" android:textColor="#ffa6a6a6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Board Number" android:layout_marginStart="10.0dip" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                        <RelativeLayout android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="15.0sp" android:layout_marginBottom="10.0sp" android:layout_weight="1.0" android:layout_marginEnd="10.0sp">
+                            <TextView android:textSize="16.0sp" android:textStyle="normal" android:textColor="@color/colorPrimaryDark" android:gravity="center_vertical" android:id="@id/boardTv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="\#1" android:layout_centerVertical="true" android:layout_alignParentEnd="true" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <View android:background="#ffb5b5b5" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" />
+                    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:weightSum="3.0">
+                        <RelativeLayout android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginBottom="10.0dip" android:layout_weight="2.0" android:layout_marginStart="10.0dip">
+                            <ImageView android:id="@id/whatsappIv" android:layout_width="30.0sp" android:layout_height="30.0sp" android:scaleType="fitXY" android:layout_centerVertical="true" app:srcCompat="@drawable/whatsapp" />
+                            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" android:layout_toEndOf="@id/whatsappIv">
+                                <TextView android:textSize="12.0sp" android:textStyle="normal" android:textColor="#ffa6a6a6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="Contact opponent &amp; Share RoomCode" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                        <RelativeLayout android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginBottom="10.0dip" android:layout_weight="1.0" android:layout_marginEnd="10.0dip">
+                            <TextView android:textSize="16.0sp" android:textStyle="normal" android:textColor="@color/colorPrimaryDark" android:gravity="center_vertical" android:id="@id/whatsappTv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Click Here" android:layout_centerVertical="true" android:layout_alignParentEnd="true" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <View android:background="#ffb5b5b5" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_marginLeft="20.0sp" android:layout_marginRight="20.0sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:id="@id/resultCv" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="20.0dip" android:layout_marginRight="20.0dip" android:foreground="?android:selectableItemBackground" app:cardCornerRadius="3.0dip" app:cardPreventCornerOverlap="true">
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <LinearLayout android:layout_gravity="center" android:background="@color/colorPrimaryDark" android:layout_width="fill_parent" android:layout_height="30.0dip">
+                        <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center_horizontal" android:layout_gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Update Result" />
+                    </LinearLayout>
+                    <View android:background="#ffb5b5b5" android:layout_width="fill_parent" android:layout_height="0.5sp" android:layout_marginLeft="20.0sp" android:layout_marginRight="20.0sp" />
+                    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:weightSum="4.0">
+                        <RelativeLayout android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginBottom="10.0dip" android:layout_weight="3.0" android:layout_marginStart="10.0dip">
+                            <TextView android:textSize="16.0sp" android:textStyle="normal" android:textColor="#ffa6a6a6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Win" android:layout_marginStart="10.0dip" />
+                        </RelativeLayout>
+                        <RelativeLayout android:gravity="center_horizontal" android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginBottom="10.0dip" android:layout_weight="1.0" android:layout_marginEnd="10.0dip">
+                            <CheckBox android:id="@id/winCb" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <View android:background="#ffb5b5b5" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" />
+                    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:weightSum="4.0">
+                        <RelativeLayout android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginBottom="10.0dip" android:layout_weight="3.0" android:layout_marginStart="10.0dip">
+                            <TextView android:textSize="16.0sp" android:textStyle="normal" android:textColor="#ffa6a6a6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Loss" android:layout_marginStart="10.0dip" />
+                        </RelativeLayout>
+                        <RelativeLayout android:gravity="center_horizontal" android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginBottom="10.0dip" android:layout_weight="1.0" android:layout_marginEnd="10.0dip">
+                            <CheckBox android:id="@id/lossCb" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <View android:background="#ffb5b5b5" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" />
+                    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:weightSum="4.0">
+                        <RelativeLayout android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginBottom="10.0dip" android:layout_weight="3.0" android:layout_marginStart="10.0dip">
+                            <TextView android:textSize="16.0sp" android:textStyle="normal" android:textColor="#ffa6a6a6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cancel" android:layout_marginStart="10.0dip" />
+                        </RelativeLayout>
+                        <RelativeLayout android:gravity="center_horizontal" android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginBottom="10.0dip" android:layout_weight="1.0" android:layout_marginEnd="10.0dip">
+                            <CheckBox android:id="@id/cancelCb" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <View android:background="#ffb5b5b5" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_marginLeft="20.0sp" android:layout_marginRight="20.0sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_gravity="center" android:id="@id/uploadCv" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="20.0dip" app:cardCornerRadius="3.0sp" app:cardPreventCornerOverlap="true">
+                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <ImageView android:id="@id/proofIv" android:layout_width="120.0sp" android:layout_height="120.0sp" android:layout_margin="20.0dip" android:src="@drawable/upload_photo" />
+                    <TextView android:textSize="16.0sp" android:textStyle="normal" android:textColor="@color/colorPrimaryDark" android:gravity="center" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Select Wining proof" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <TextView android:textSize="16.0sp" android:textStyle="normal" android:textColor="@color/green" android:gravity="center_vertical" android:id="@id/remarkTv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="Your Result uploaded successfully" android:layout_marginStart="20.0dip" />
+            <Button android:textSize="16.0sp" android:textColor="@color/white" android:layout_gravity="start" android:id="@id/uploadBt" android:background="@drawable/button_background_blue" android:layout_width="wrap_content" android:layout_height="32.0dip" android:layout_marginLeft="20.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="20.0dip" android:text="Submit" />
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="18.0sp" android:textColor="#ff000000" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="Rules &amp; Policy" android:layout_marginStart="20.0dip" />
+            </RelativeLayout>
+            <WebView android:textSize="12.0sp" android:textColor="#ff838383" android:id="@id/rulesWv" android:padding="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:layout_marginBottom="200.0dip" android:text="" android:layout_marginStart="20.0dip" />
+        </LinearLayout>
+    </ScrollView>
+    <Button android:textSize="18.0sp" android:textColor="@color/white" android:layout_gravity="start" android:id="@id/playBt" android:background="@color/colorPrimaryDark" android:layout_width="fill_parent" android:layout_height="40.0dip" android:text="Play Now" android:layout_alignParentBottom="true" />
+</RelativeLayout>

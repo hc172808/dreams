@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.Toolbar android:gravity="center_vertical" android:id="@id/toolbar" android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="?actionBarSize" app:layout_collapseMode="pin" app:layout_scrollFlags="scroll|enterAlways" app:theme="@style/ToolbarTheme" app:title="Referral Program" />
+    <androidx.core.widget.NestedScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true" android:layout_below="@id/toolbar">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ImageView android:background="@color/colorPrimary" android:padding="@dimen/spacing_xlarge" android:layout_width="fill_parent" android:layout_height="250.0dip" android:src="@drawable/ic_referral" android:scaleType="fitCenter" />
+            <TextView android:textSize="20.0dip" android:textStyle="bold" android:textColor="@color/colorPrimaryDark" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:text="Share and earn more!" android:textAllCaps="true" />
+            <TextView android:textSize="16.0dip" android:textColor="@color/black" android:gravity="center" android:padding="15.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Invite your friends to play our app and you'll get 1% of the joining fees everytime your referred user join a pain contest. This will be added to your bonus balance so, you can use it to join any contest. This is valid lifetime." />
+            <TextView android:textSize="25.0sp" android:textStyle="bold" android:textColor="@color/colorPrimary" android:gravity="center_vertical" android:layout_gravity="center_horizontal" android:id="@id/referTv" android:background="@drawable/dotted_circle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginTop="15.0dip" android:layout_marginRight="15.0dip" android:text="megalotto" android:paddingStart="15.0dip" android:paddingEnd="15.0dip" />
+            <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton android:layout_gravity="center_horizontal" android:id="@id/shareBt" android:layout_marginTop="30.0dip" android:layout_marginBottom="30.0dip" android:text="Share" app:initialCornerAngle="27.0dip" app:spinning_bar_color="#ffffffff" app:spinning_bar_padding="6.0dip" app:spinning_bar_width="4.0dip" style="@style/loginButton" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

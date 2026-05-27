@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:gravity="center" android:orientation="vertical" android:background="#ffffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:elevation="5.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:background="#ffffffff" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:layout_gravity="center_horizontal" android:id="@id/easypay_icon_iv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="7.0dip" android:src="@drawable/paytm_assist_icon" android:contentDescription="TODO" />
+        <ImageView android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/paytm_assist_logo" android:contentDescription="TODO" />
+        <TextView android:textSize="15.0dip" android:textStyle="bold" android:textColor="#ff373737" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:text="Processing Your Request" />
+        <TextView android:textSize="12.0dip" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5.0sp" android:text="please wait" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

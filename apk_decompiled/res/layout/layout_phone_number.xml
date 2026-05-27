@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/bottom_sheet_number" android:background="@drawable/top_right_rounded" android:layout_width="fill_parent" android:layout_height="wrap_content" app:behavior_hideable="true" app:behavior_peekHeight="0.0dip" app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
+    <RelativeLayout android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/img_close" android:layout_width="20.0dip" android:layout_height="20.0dip" android:layout_marginTop="20.0dip" android:adjustViewBounds="true" android:layout_centerVertical="true" android:layout_marginEnd="20.0dip" android:layout_alignParentEnd="true" app:srcCompat="@drawable/close" />
+    </RelativeLayout>
+    <TextView android:textSize="16.0sp" android:textColor="#ff082240" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="20.0dip" android:text="Enter your Mobile Number" android:textAllCaps="true" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="16.0dip" android:layout_marginEnd="16.0dip">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="13.0dip" android:layout_weight="2.0">
+            <TextView android:textSize="12.0sp" android:textColor="?android:textColorHint" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Country Code" android:textAlignment="textStart" android:layout_marginStart="5.0dip" android:layout_marginEnd="0.0dip" />
+            <com.hbb20.CountryCodePicker android:id="@id/countryCodePicker" android:layout_width="fill_parent" android:layout_height="wrap_content" app:ccp_defaultPhoneCode="91" app:ccp_showFlag="true" app:ccp_showNameCode="false" app:ccp_showPhoneCode="true" app:ccp_textSize="@dimen/newsMoreTextSize" />
+            <View android:background="@color/colorAccent" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginStart="4.0dip" android:layout_marginEnd="0.0dip" />
+        </LinearLayout>
+        <View android:layout_width="10.0dip" android:layout_height="1.0dip" />
+        <com.google.android.material.textfield.TextInputLayout android:id="@id/textInputMobile" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/loginViewsMargin" android:layout_weight="1.0">
+            <EditText android:id="@id/editTextMobile" android:hint="Mobile" android:maxLines="1" android:inputType="phone" style="@style/modifiedEditText" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+    <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="16.0dip" android:layout_marginEnd="16.0dip">
+        <TextView android:textSize="12.0sp" android:id="@id/img_cc" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Coupon Code" android:layout_marginStart="15.0dip" />
+        <com.google.android.material.textfield.TextInputLayout android:id="@id/textCouponSocial" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/loginViewsMargin" android:layout_weight="1.0" android:layout_below="@id/img_cc">
+            <EditText android:id="@id/et_coupon_social" android:hint="Refer Code (Optional)" android:maxLines="1" android:inputType="text" android:imeOptions="actionDone" android:textAllCaps="false" style="@style/modifiedEditText" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <androidx.cardview.widget.CardView android:layout_gravity="end" android:id="@id/cv_apply_coupon_social" android:visibility="visible" android:layout_width="60.0dip" android:layout_height="30.0dip" android:layout_marginTop="25.0dip" android:layout_below="@id/img_cc" android:layout_alignParentEnd="true" app:cardCornerRadius="15.0dip">
+            <RelativeLayout android:background="@color/colorAccent" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:textColor="@android:color/white" android:gravity="center" android:id="@id/txt_apply_social" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="Apply" android:textAlignment="center" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+        <TextView android:textColor="@color/colorPrimary" android:id="@id/img_remove_coupon_social" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dip" android:text="Remove" android:layout_marginEnd="20.0dip" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textSize="12.0sp" android:gravity="center" android:layout_gravity="center" android:id="@id/promo_applied_text_social" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="XYZ promo applied" />
+        <ImageView android:id="@id/img_check_social" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginStart="10.0dip" app:srcCompat="@drawable/ic_checks" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:id="@id/card_submit_number" android:paddingTop="15.0dip" android:paddingBottom="15.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dip" android:layout_marginBottom="10.0dip" android:paddingStart="60.0dip" android:paddingEnd="60.0dip" style="@style/loginButton">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" app:srcCompat="@drawable/ic_checkmark" />
+        <TextView android:textStyle="bold" android:textColor="@android:color/white" android:id="@id/txt_submit_for_verification" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Verify" android:textAllCaps="true" android:layout_marginStart="15.0dip" />
+    </LinearLayout>
+</LinearLayout>

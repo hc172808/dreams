@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:background="@drawable/emi_tenure_row_selection_bg" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_5dp" android:layout_marginBottom="@dimen/dimen_5dp" android:weightSum="1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:id="@id/cb_emi_tenure" android:clickable="false" android:duplicateParentState="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:checked="false" android:layout_weight="0.1" android:buttonTint="?colorPrimary" />
+    <TextView android:textSize="@dimen/dimen_emi_tenure" android:id="@id/tv_emi_tenure" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/emi_screen_tenure" android:layout_weight="0.37" />
+    <TextView android:textSize="@dimen/dimen_emi_value" android:gravity="center|right" android:id="@id/tv_emi_amount" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/emi_screen_emi" android:layout_weight="0.28" />
+    <TextView android:textSize="@dimen/dimen_emi_interest" android:gravity="right" android:id="@id/tv_emi_interest" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/emi_screen_interest" android:layout_weight="0.25" />
+</LinearLayout>

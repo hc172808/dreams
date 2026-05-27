@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/viewMoreBt">
+        <com.google.android.material.appbar.AppBarLayout android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" android:id="@id/appBarLayout" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="220.0dip">
+            <com.google.android.material.appbar.CollapsingToolbarLayout android:id="@id/collapsingToolbar" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent" app:contentScrim="@color/colorPrimary" app:expandedTitleTextAppearance="@style/personal_expanded_title" app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                <ImageView android:id="@id/imageIv" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/app_icon" android:scaleType="centerCrop" />
+                <androidx.appcompat.widget.Toolbar android:id="@id/toolbar" android:layout_width="fill_parent" android:layout_height="?actionBarSize" app:contentInsetEnd="0.0dip" app:contentInsetLeft="0.0dip" app:contentInsetRight="0.0dip" app:contentInsetStart="0.0dip" app:elevation="0.0dip" app:layout_collapseMode="pin" app:theme="@style/ToolbarTheme" app:title="My Wallet" app:titleTextColor="@color/white" />
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+        <androidx.core.widget.NestedScrollView android:id="@id/scrollView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:fillViewport="true" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <TextView android:textSize="17.0sp" android:textColor="@color/colorPrimary" android:id="@id/titleTv" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="15.0dip" android:text="\#101 Board Number" />
+                <TextView android:textSize="12.0sp" android:textStyle="bold" android:id="@id/dateTv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginTop="5.0dip" android:layout_marginRight="15.0dip" android:text="12/12/2020" />
+                <WebView android:id="@id/webView" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="8.0dip" android:layout_marginTop="16.0dip" android:layout_marginRight="8.0dip" android:layout_marginBottom="15.0dip" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <Button android:textSize="15.0sp" android:textColor="#ffffffff" android:id="@id/viewMoreBt" android:background="@color/colorPrimary" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:visibility="visible" android:clickable="true" android:layout_width="fill_parent" android:layout_height="?actionBarSize" android:text="View More" android:layout_alignParentBottom="true" android:textAllCaps="true" />
+</RelativeLayout>

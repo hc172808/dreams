@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="22.0sp" android:textStyle="bold" android:textColor="@color/white" android:background="@color/colorAccent" android:padding="15.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Enter WhatsApp Number" android:textAlignment="center" />
+    <com.google.android.material.textfield.TextInputLayout android:layout_gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="15.0dip">
+        <com.google.android.material.textfield.TextInputEditText android:textStyle="bold" android:id="@id/numberEt" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="WhatsApp Number" android:maxLength="10" android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="0.0dip" android:layout_marginBottom="15.0dip" android:layout_marginStart="15.0dip" android:layout_marginEnd="15.0dip">
+        <Button android:textSize="18.0sp" android:textColor="#ffffffff" android:id="@id/cancelBt" android:background="@color/grey_60" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Cancel" android:layout_weight="1.0" android:layout_marginStart="0.0dip" android:layout_marginEnd="5.0dip" />
+        <Button android:textSize="18.0sp" android:textColor="#ffffffff" android:id="@id/okayBt" android:background="@color/colorAccent" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Okay" android:layout_weight="1.0" android:layout_marginStart="5.0dip" android:layout_marginEnd="0.0dip" />
+    </LinearLayout>
+    <TextView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="0.0dip" android:layout_marginBottom="15.0dip" android:text="Note : If in future, you need to update WhatsApp number then Visit profile section in application and update WhatsApp number" android:layout_marginStart="15.0dip" android:layout_marginEnd="15.0dip" />
+</LinearLayout>

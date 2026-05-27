@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dimen_amount_layout_amount">20.0sp</dimen>
+    <dimen name="dimen_emi_interest">13.0sp</dimen>
+    <dimen name="dimen_emi_tenure">13.0sp</dimen>
+    <dimen name="dimen_emi_tenure_margin">10.0dip</dimen>
+    <dimen name="dimen_emi_tenure_margin2">5.0dip</dimen>
+    <dimen name="dimen_emi_value">13.0sp</dimen>
+    <dimen name="dimen_review_order_title_size">14.0sp</dimen>
+    <dimen name="sdk_review_order_title_size">14.0sp</dimen>
+</resources>

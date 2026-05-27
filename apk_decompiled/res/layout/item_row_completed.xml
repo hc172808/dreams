@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="2.5dip" app:cardCornerRadius="5.0dip" app:cardPreventCornerOverlap="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:weightSum="1.0">
+        <FrameLayout android:background="@color/colorAccent" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="0.015" />
+        <LinearLayout android:orientation="vertical" android:padding="@dimen/spacing_medium" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="0.935">
+            <TextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="@color/black" android:id="@id/titleTv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="\#111 Board Number" android:textAllCaps="true" />
+            <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/spacing_medium" android:layout_marginBottom="@dimen/spacing_medium" android:weightSum="9.0">
+                <LinearLayout android:gravity="start|center" android:layout_gravity="start" android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="3.0">
+                    <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/black" android:id="@id/prizeTv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="500" />
+                    <TextView android:textSize="10.0sp" android:textStyle="bold" android:textColor="@color/black" android:gravity="top" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="Win" />
+                </LinearLayout>
+                <TextView android:textSize="10.0sp" android:textStyle="bold" android:gravity="center" android:layout_gravity="center" android:id="@id/timeTv" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Played On:\n10/10/2018 at 7 PM" android:layout_weight="3.0" />
+                <LinearLayout android:gravity="end|center" android:layout_gravity="end" android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="3.0">
+                    <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/black" android:id="@id/feesTv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="50" />
+                    <TextView android:textSize="10.0sp" android:textStyle="bold" android:textColor="@color/black" android:gravity="top" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="Fee" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:weightSum="10.0">
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="3.0">
+                    <ProgressBar android:id="@id/progressBar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:max="4" android:progress="1" style="?android:progressBarStyleHorizontal" />
+                    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <TextView android:textSize="10.0sp" android:textColor="@color/colorSuccess" android:id="@id/winnerTv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Winner: ludoking" android:layout_alignParentStart="true" />
+                        <TextView android:textSize="10.0sp" android:textStyle="bold" android:id="@id/roomSizeTv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Player:1/4" android:layout_alignParentEnd="true" />
+                    </RelativeLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:id="@id/statusLi" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="7.0">
+                    <Button android:textSize="10.0sp" android:textColor="@color/white" android:layout_gravity="end" android:id="@id/statusBt" android:background="@drawable/button_background_green" android:clickable="true" android:layout_width="wrap_content" android:layout_height="29.0dip" android:text="Won" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <com.definiteautomation.dreamludofantacy.view.VerticalTextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center" android:id="@id/typeTv" android:background="@color/colorAccent" android:paddingTop="5.0dip" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="Single" android:layout_weight="0.06" android:textAllCaps="true" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

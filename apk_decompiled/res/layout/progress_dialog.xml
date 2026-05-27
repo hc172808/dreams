@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:textSize="20.0sp" android:gravity="center_horizontal" android:padding="8.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/paytm_assist" android:contentDescription="TODO" />
+    <TextView android:textSize="20.0sp" android:textColor="#ff111111" android:gravity="center_horizontal" android:padding="8.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="We're processing your request" />
+    <ProgressBar android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <TextView android:textSize="18.0sp" android:textColor="#ff111111" android:gravity="center_horizontal" android:padding="8.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="This may take some time depending on your connection speed " android:fontFamily="sans-serif-light" />
+</LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/r_amount_layout" android:paddingLeft="@dimen/dimen_10dp" android:paddingTop="@dimen/dimen_10dp" android:paddingRight="10.0dip" android:paddingBottom="@dimen/dimen_10dp" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/dimen_amount_layout_amount" android:textColor="@android:color/black" android:id="@id/quick_pay_balance" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/quick_pay_amount" android:layout_alignParentLeft="true" />
+            <TextView android:textSize="@dimen/dimen_14sp" android:textColor="?colorPrimary" android:id="@id/show_button" android:paddingBottom="@dimen/dimen_5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Details" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/l_convenience_fee" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_35dp">
+            <RelativeLayout android:orientation="horizontal" android:id="@id/payumoney_amount" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_10dp">
+                <TextView android:textSize="@dimen/dimen_18sp" android:id="@id/subtotal_title" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Subtotal:" />
+                <TextView android:id="@id/subtotal_amount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/quick_pay_amount" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <RelativeLayout android:orientation="horizontal" android:background="@color/payumoney_white" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_10dp">
+                <TextView android:textSize="@dimen/dimen_18sp" android:id="@id/convenience_fee_title" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Convenience Fee:" />
+                <TextView android:id="@id/convenience_fee_amount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/quick_pay_amount" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_10dp">
+                <TextView android:textSize="@dimen/dimen_18sp" android:id="@id/total_title" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Total:" android:layout_alignParentLeft="true" />
+                <TextView android:id="@id/total_amount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/quick_pay_amount" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <TextView android:textColor="?colorPrimary" android:layout_gravity="center|right" android:id="@id/hide_button" android:paddingLeft="@dimen/dimen_5dp" android:paddingTop="@dimen/dimen_5dp" android:paddingBottom="@dimen/dimen_5dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_5dp" android:text="Hide Details" android:layout_centerVertical="true" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

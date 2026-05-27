@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/payumoney_white" android:padding="@dimen/dimen_2dp" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:paddingLeft="@dimen/dimen_15dp" android:paddingTop="@dimen/dimen_5dp" android:paddingRight="@dimen/dimen_15dp" android:paddingBottom="@dimen/dimen_5dp" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/dimen_22sp" android:textColor="@color/payumoney_black" android:id="@id/textview_dialogfragment_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_15dp" android:text="@string/label_select_bank" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/img_dismiss_dialog" android:layout_width="@dimen/dimen_25dp" android:layout_height="@dimen/dimen_25dp" android:src="@drawable/close" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <View android:background="@color/divider_line_color" android:layout_width="fill_parent" android:layout_height="@dimen/dimen_1dp" />
+    <RelativeLayout android:background="@color/auto_load_update_bg_color" android:paddingLeft="@dimen/dimen_15dp" android:paddingTop="@dimen/dimen_10dp" android:paddingRight="@dimen/dimen_15dp" android:paddingBottom="@dimen/dimen_10dp" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <androidx.appcompat.widget.SearchView android:textSize="@dimen/dimen_18sp" android:id="@id/bank_filter_search_view" android:background="@drawable/bg_rounded_search_view" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/label_enter_bank_name" app:iconifiedByDefault="false" />
+    </RelativeLayout>
+    <View android:background="@color/light_gray" android:layout_width="fill_parent" android:layout_height="@dimen/dimen_1dp" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <RelativeLayout android:id="@id/layout_get_bank_list" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/enabled_bank_recycler_view" android:background="@color/payumoney_white" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/dimen_10dp" />
+            <com.payumoney.sdkui.ui.widgets.StickyHeaderIndex android:textSize="@dimen/dimen_20sp" android:textStyle="bold" android:id="@id/sticky_index_container" android:layout_width="80.0dip" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_10dp" app:rowHeight="64.0dip" app:stickyViewTextColor="?colorPrimary" app:stickyWidth="60.0dip" />
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

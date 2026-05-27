@@ -1,0 +1,34 @@
+.class public final synthetic Lcom/definiteautomation/dreamludofantacy/activity/-$$Lambda$LoginActivity$jFOT7xsPJYeZJ-5bb8wm1sho7nk;
+.super Ljava/lang/Object;
+.source "lambda"
+
+# interfaces
+.implements Landroid/view/View$OnClickListener;
+
+
+# instance fields
+.field public final synthetic f$0:Lcom/definiteautomation/dreamludofantacy/activity/LoginActivity;
+
+
+# direct methods
+.method public synthetic constructor <init>(Lcom/definiteautomation/dreamludofantacy/activity/LoginActivity;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/definiteautomation/dreamludofantacy/activity/-$$Lambda$LoginActivity$jFOT7xsPJYeZJ-5bb8wm1sho7nk;->f$0:Lcom/definiteautomation/dreamludofantacy/activity/LoginActivity;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final onClick(Landroid/view/View;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/definiteautomation/dreamludofantacy/activity/-$$Lambda$LoginActivity$jFOT7xsPJYeZJ-5bb8wm1sho7nk;->f$0:Lcom/definiteautomation/dreamludofantacy/activity/LoginActivity;
+
+    invoke-virtual {v0, p1}, Lcom/definiteautomation/dreamludofantacy/activity/LoginActivity;->lambda$onCreate$0$LoginActivity(Landroid/view/View;)V
+
+    return-void
+.end method

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.Toolbar android:gravity="center_vertical" android:id="@id/toolbar" android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="?actionBarSize" android:layout_alignParentTop="true" app:contentInsetEnd="0.0dip" app:contentInsetLeft="0.0dip" app:contentInsetRight="0.0dip" app:contentInsetStart="0.0dip" app:elevation="0.0dip" app:theme="@style/AppTheme">
+        <RelativeLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ImageView android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/app_icon" android:layout_width="35.0dip" android:layout_height="wrap_content" android:src="@drawable/app_icon" android:layout_marginStart="5.0dip" android:layout_alignParentStart="true" />
+            <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/app_name" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="8.0dip" android:layout_marginRight="8.0dip" android:text="@string/app_name" android:layout_toEndOf="@id/app_icon" />
+            <FrameLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/notificationFl" android:focusable="true" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" style="?actionButtonStyle">
+                <ImageView android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" app:srcCompat="@drawable/ic_push_notification" />
+                <TextView android:textSize="10.0sp" android:textColor="@android:color/white" android:gravity="center" android:layout_gravity="end|center|top" android:id="@id/counterTv" android:background="@drawable/bage_square" android:padding="0.0dip" android:visibility="gone" android:layout_width="16.0dip" android:layout_height="16.0dip" android:layout_marginTop="12.0dip" android:layout_marginRight="0.0dip" android:text="0" android:layout_marginEnd="0.0dip" />
+            </FrameLayout>
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+    <FrameLayout android:id="@id/mainContainer" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/navigationView" android:layout_below="@id/toolbar" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView android:layout_gravity="bottom" android:id="@id/navigationView" android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" app:itemIconTint="@drawable/color_state_primary" app:itemTextColor="@drawable/color_state_primary" app:menu="@menu/menu_bottom_navigation_main" />
+    <androidx.appcompat.widget.SwitchCompat android:id="@id/switchNotification" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" />
+</RelativeLayout>

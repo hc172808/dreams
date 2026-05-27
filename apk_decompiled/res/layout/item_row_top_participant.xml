@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="4.0dip" android:layout_marginRight="10.0dip" android:layout_marginBottom="4.0dip" app:cardPreventCornerOverlap="true" app:contentPaddingBottom="7.0dip" app:contentPaddingTop="7.0dip">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="5.0dip" android:layout_weight="1.5">
+                <TextView android:textSize="18.0sp" android:id="@id/posTv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1" android:textAllCaps="true" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="5.0dip" android:layout_weight="1.2">
+                <TextView android:textSize="16.0sp" android:textStyle="bold" android:layout_gravity="start" android:id="@id/nameTv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/app_name" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="5.0dip" android:layout_weight="1.5">
+                <TextView android:textSize="17.0sp" android:textColor="@color/colorSuccess" android:id="@id/prizeTv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="50" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

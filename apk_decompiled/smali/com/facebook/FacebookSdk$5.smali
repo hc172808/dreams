@@ -1,0 +1,47 @@
+.class final Lcom/facebook/FacebookSdk$5;
+.super Ljava/lang/Object;
+.source "FacebookSdk.java"
+
+# interfaces
+.implements Lcom/facebook/internal/FeatureManager$Callback;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/facebook/FacebookSdk;->sdkInitialize(Landroid/content/Context;Lcom/facebook/FacebookSdk$InitializeCallback;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x8
+    name = null
+.end annotation
+
+
+# direct methods
+.method constructor <init>()V
+    .locals 0
+
+    .line 363
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onCompleted(Z)V
+    .locals 1
+    .param p1, "enabled"    # Z
+
+    .line 366
+    if-eqz p1, :cond_0
+
+    .line 367
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/facebook/FacebookSdk;->hasCustomTabsPrefetching:Z
+
+    .line 369
+    :cond_0
+    return-void
+.end method

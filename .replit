@@ -1,4 +1,4 @@
-modules = ["php-8.2"]
+modules = ["php-8.2", "java-graalvm22.3"]
 [nix]
 channel = "stable-25_05"
 

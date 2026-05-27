@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="2.5dip" app:cardPreventCornerOverlap="true" app:contentPaddingBottom="5.0dip" app:contentPaddingTop="5.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="5.0dip" android:layout_weight="0.9">
+            <TextView android:id="@id/posTv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="5.0dip" android:layout_weight="0.5">
+            <TextView android:textSize="13.0sp" android:textStyle="bold" android:layout_gravity="start" android:id="@id/titleTv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Board Number #35" android:singleLine="true" />
+            <TextView android:textSize="10.0sp" android:layout_gravity="start" android:id="@id/dateTv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="Played On: 10/10/2018 at 7 PM" android:singleLine="true" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="5.0dip" android:layout_weight="0.8">
+            <TextView android:id="@id/feesTv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="50" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="5.0dip" android:layout_weight="0.8">
+            <TextView android:id="@id/prizeTv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="150" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

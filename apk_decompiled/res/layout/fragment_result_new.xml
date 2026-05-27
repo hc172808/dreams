@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:background="@color/payumoney_app_background_color" android:padding="@dimen/dimen_8dp" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:pptextview="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_5dp" android:layout_marginTop="@dimen/dimen_10dp" android:layout_marginRight="@dimen/dimen_5dp" android:layout_centerHorizontal="true" app:cardBackgroundColor="@color/payumoney_white" app:cardCornerRadius="@dimen/dimen_7dp" app:cardElevation="@dimen/dimen_5dp" app:cardPreventCornerOverlap="false" app:contentPadding="@dimen/dimen_16dp"
+          xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+            <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <ImageView android:id="@id/payment_result_image" android:layout_width="@dimen/dimen_60dp" android:layout_height="@dimen/dimen_60dp" android:layout_marginTop="@dimen/dimen_20dp" android:src="@drawable/ic_txn_done" android:contentDescription="@string/app_name" />
+                <TextView android:textSize="@dimen/dimen_24sp" android:textColor="@color/payumoney_text_color" android:gravity="center" android:id="@id/payment_result_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_20dp" android:text="@string/text_payment_success" />
+                <TextView android:textSize="@dimen/dimen_16sp" android:textColor="@color/payumoney_black" android:gravity="center" android:id="@id/transaction_response_msg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_15dp" />
+                <com.payumoney.sdkui.ui.widgets.CustomDrawableTextView android:textSize="@dimen/dimen_17sp" android:textColor="@color/payumoney_white" android:gravity="center" android:id="@id/btn_continue_shopping" android:paddingTop="@dimen/dimen_10dp" android:paddingBottom="@dimen/dimen_10dp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_15dp" android:layout_marginTop="@dimen/dimen_20dp" android:layout_marginRight="@dimen/dimen_15dp" android:layout_marginBottom="@dimen/dimen_10dp" android:text="@string/btn_continue_shopping" android:layout_alignParentBottom="true" app:bgColor="?colorPrimary" app:borderOnly="false" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</ScrollView>
