@@ -3,6 +3,7 @@
 
 	$masterMenu = array('category','city','area','banner');
 	$configMenu = array('about','customer-support','app-configuration','app-update','privacy-policy', 'legal-policy', 'game-setting', 'rules', 'faq','terms-and-condition');
+	$cryptoMenu = array('crypto-coins','crypto-topup','crypto-transactions');
 ?>
 <div class="aside aside-left aside-fixed d-flex flex-column flex-row-auto" id="kt_aside">
 	<!--begin::Brand-->

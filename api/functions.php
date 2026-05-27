@@ -1999,3 +1999,56 @@ class functions extends REST {
         
 }
 ?>
+    public function getCoinTypes() {
+        include "../include/config.php";
+        $res = mysqli_query($conn, "SELECT id, name, symbol, type, decimals, icon_url, network FROM tbl_coin_type WHERE is_active=1 ORDER BY sort_order ASC");
+        $coins = [];
+        while ($r = mysqli_fetch_assoc($res)) $coins[] = $r;
+        $set['result'][] = ['coins' => $coins, 'success' => '1'];
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($set);
+        exit;
+    }
+
+    public function getCoinBalance() {
+        include "../include/config.php";
+        if (!isset($_POST['user_id']) || !isset($_POST['purchase_key']) || $pur_code != $_POST['purchase_key']) {
+            echo json_encode(['result' => [['msg' => 'Unauthorized', 'success' => '0']]]);
+            exit;
+        }
+        $uid     = intval($_POST['user_id']);
+        $coin_id = isset($_POST['coin_id']) ? intval($_POST['coin_id']) : 0;
+        $where   = "w.user_id=$uid" . ($coin_id ? " AND w.coin_id=$coin_id" : '');
+        $res = mysqli_query($conn, "SELECT w.balance, c.name, c.symbol, c.decimals, c.icon_url, c.id as coin_id
+            FROM tbl_coin_wallet w
+            JOIN tbl_coin_type c ON c.id=w.coin_id
+            WHERE $where");
+        $wallets = [];
+        while ($r = mysqli_fetch_assoc($res)) $wallets[] = $r;
+        $set['result'][] = ['wallets' => $wallets, 'success' => '1'];
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($set);
+        exit;
+    }
+
+    public function getCoinTransactions() {
+        include "../include/config.php";
+        if (!isset($_POST['user_id']) || !isset($_POST['purchase_key']) || $pur_code != $_POST['purchase_key']) {
+            echo json_encode(['result' => [['msg' => 'Unauthorized', 'success' => '0']]]);
+            exit;
+        }
+        $uid     = intval($_POST['user_id']);
+        $coin_id = isset($_POST['coin_id']) ? intval($_POST['coin_id']) : 0;
+        $where   = "ct.user_id=$uid" . ($coin_id ? " AND ct.coin_id=$coin_id" : '');
+        $res = mysqli_query($conn, "SELECT ct.id, ct.amount, ct.type, ct.reason, ct.ref_id, ct.status, ct.note, ct.date_created, c.symbol
+            FROM tbl_coin_transaction ct
+            JOIN tbl_coin_type c ON c.id=ct.coin_id
+            WHERE $where ORDER BY ct.id DESC LIMIT 50");
+        $txns = [];
+        while ($r = mysqli_fetch_assoc($res)) $txns[] = $r;
+        $set['result'][] = ['transactions' => $txns, 'success' => '1'];
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($set);
+        exit;
+    }
+
