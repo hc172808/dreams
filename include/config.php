@@ -1,24 +1,24 @@
 <?php 
 
 $servername = "localhost";
-$username = "db_username";
-$password = "db_password";
-$db = "db_name";
+$username = "dreamludo";
+$password = "dreamludo123";
+$db = "dreamludo";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $db);
+// Create connection using socket for local MySQL
+$conn = new mysqli();
+$conn->real_connect($servername, $username, $password, $db, 3306, '/tmp/mysql.sock');
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } else {
-    // $conn->set_charset('utf8');
+    $conn->set_charset('utf8mb4');
 }
 
 $GLOBALS['config'] = $conn;
 
 $ENABLE_RTL_MODE = 'false';
-//echo "Connected successfully";
 
 date_default_timezone_set('Asia/Kolkata');
 

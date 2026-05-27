@@ -35,6 +35,8 @@ class functions extends REST {
         
         public function postUserRegister() {
                 include "../include/config.php";
+                require_once("rate_limit.php");
+                if (!checkRateLimit(getRateLimitKey('register'), 5, 60)) { denyRateLimit(); }
 
         if(!isset($_POST['purchase_key']) || $pur_code != $_POST['purchase_key']) {
             $set['result'][] = array('msg' => 'Invalid access attampt!', 'success' => '0');
@@ -223,7 +225,9 @@ class functions extends REST {
 
         public function getUserLogin() {
                 include "../include/config.php";
-        
+                require_once("rate_limit.php");
+                if (!checkRateLimit(getRateLimitKey('login'), 10, 60)) { denyRateLimit(); }
+
         if(!isset($_GET['purchase_key']) || $pur_code != $_GET['purchase_key']) {
             $set['result'][] = array('msg' => 'Invalid access attampt!', 'success' => '0');
         }
@@ -730,6 +734,8 @@ class functions extends REST {
         
         public function postDeposit() {
                 include "../include/config.php";
+                require_once("rate_limit.php");
+                if (!checkRateLimit(getRateLimitKey('deposit'), 15, 60)) { denyRateLimit(); }
 
         if(!isset($_POST['purchase_key']) || $pur_code != $_POST['purchase_key']) {
             $set['result'][] = array('msg' => 'Invalid access attampt!', 'success' => '0');
