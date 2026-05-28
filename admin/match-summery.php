@@ -26,7 +26,7 @@ if(isset($_GET['partiId'])&&isset($_GET['aid'])&&isset($_GET['mtid']))
         $aid = $_GET['aid'];
         $mtid = $_GET['mtid'];
 
-        $getMatchQry = $conn->query("SELECT p.*, m.match_fee, m.prize, u.fcm_token from tbl_participants as p left join tbl_match as m on m.id=p.match_id left join tbl_user as u on u.id=$aid where p.id=$partiId and p.result_status is NULL");
+        $getMatchQry = $conn->query("SELECT p.*, m.match_fee, m.prize, m.coin_id, u.fcm_token from tbl_participants as p left join tbl_match as m on m.id=p.match_id left join tbl_user as u on u.id=$aid where p.id=$partiId and p.result_status is NULL");
         
         $matchRes = $getMatchQry->fetch_assoc();
         $resultTime = date('Y-m-d H:i:s');
@@ -43,6 +43,21 @@ if(isset($_GET['partiId'])&&isset($_GET['aid'])&&isset($_GET['mtid']))
                                 $conn->query("INSERT into tbl_transaction (user_id, amount, payment_getway, remark, type, status) values(".$aid.",".$matchRes['prize'].", 'System', 'Match ID #".$matchRes['match_id']."- Prize', 1, 1)");
                                 $conn->query("UPDATE tbl_match SET status=3 where id=".$matchRes['match_id']);
                         }
+                        // COIN BETTING BANK PAYOUT
+                        if (!empty($matchRes['coin_id'])) {
+                                $coinId  = intval($matchRes['coin_id']);
+                                $mid     = intval($matchRes['match_id']);
+                                $now_c   = date('Y-m-d H:i:s');
+                                $potRes  = $conn->query("SELECT SUM(amount) AS pot FROM tbl_coin_betting_bank WHERE match_id=$mid AND status='held'");
+                                $potRow  = $potRes->fetch_assoc();
+                                $pot     = floatval($potRow['pot']);
+                                if ($pot > 0) {
+                                        $conn->query("INSERT INTO tbl_coin_wallet (user_id,coin_id,balance,date_created) VALUES ($aid,$coinId,$pot,'$now_c') ON DUPLICATE KEY UPDATE balance=balance+$pot, date_modified='$now_c'");
+                                        $conn->query("INSERT INTO tbl_coin_transaction (user_id,coin_id,amount,type,reason,ref_id,note,date_created) VALUES ($aid,$coinId,$pot,'credit','match_win','$mid','Match #$mid coin prize','$now_c')");
+                                        $conn->query("UPDATE tbl_coin_betting_bank SET status='won', date_settled='$now_c' WHERE match_id=$mid AND status='held'");
+                                }
+                        }
+                        // END COIN PAYOUT
 
                         // refer bonus
                         $refer_bonus = round((1 * $matchRes['match_fee']) / 100);
@@ -191,6 +206,18 @@ if(isset($_GET['canMid']))
         if($getMatchQry->num_rows==1)
         {
                 
+                // COIN REFUND ON CANCEL
+                $cancelMid = intval($matchRes['match_id']);
+                $coinBets  = $conn->query("SELECT * FROM tbl_coin_betting_bank WHERE match_id=$cancelMid AND status='held'");
+                if ($coinBets && $coinBets->num_rows > 0) {
+                        $refundNow = date('Y-m-d H:i:s');
+                        while ($bet = $coinBets->fetch_assoc()) {
+                                $conn->query("INSERT INTO tbl_coin_wallet (user_id,coin_id,balance,date_created) VALUES ({$bet['user_id']},{$bet['coin_id']},{$bet['amount']},'$refundNow') ON DUPLICATE KEY UPDATE balance=balance+{$bet['amount']}, date_modified='$refundNow'");
+                                $conn->query("INSERT INTO tbl_coin_transaction (user_id,coin_id,amount,type,reason,ref_id,note,date_created) VALUES ({$bet['user_id']},{$bet['coin_id']},{$bet['amount']},'credit','refund','{$bet['match_id']}','Match #{$bet['match_id']} cancelled refund','$refundNow')");
+                                $conn->query("UPDATE tbl_coin_betting_bank SET status='refunded', date_settled='$refundNow' WHERE id={$bet['id']}");
+                        }
+                }
+                // END COIN REFUND
                 $upUser1 = "UPDATE tbl_user set deposit_bal=deposit_bal+".$matchRes['match_fee']." where id=".$matchRes['parti1'];
                 if($conn->query($upUser1))
                 {

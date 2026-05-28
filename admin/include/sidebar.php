@@ -3,7 +3,7 @@
 
 	$masterMenu = array('category','city','area','banner');
 	$configMenu = array('about','customer-support','app-configuration','app-update','privacy-policy', 'legal-policy', 'game-setting', 'rules', 'faq','terms-and-condition');
-	$cryptoMenu = array('crypto-coins','crypto-topup','crypto-transactions');
+	$cryptoMenu = array('crypto-coins','crypto-topup','crypto-transactions','crypto-betting-bank');
 ?>
 <div class="aside aside-left aside-fixed d-flex flex-column flex-row-auto" id="kt_aside">
 	<!--begin::Brand-->
@@ -154,6 +154,36 @@
 						</span>
 						<span class="menu-text">Send Notification</span>
 					</a>
+				</li>
+				<!-- Crypto Wallet Section -->
+				<li class="menu-section">
+					<h4 class="menu-text">Crypto Wallet</h4>
+					<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
+				</li>
+				<li class="menu-item menu-item-submenu <?php if(in_array($activePage, $cryptoMenu)){echo \"menu-item-open menu-item-here\"; }?>" aria-haspopup="true" data-menu-toggle="hover">
+					<a href="javascript:;" class="menu-link menu-toggle">
+						<span class="svg-icon menu-icon"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\"><g fill=\"none\" fill-rule=\"evenodd\"><circle cx=\"12\" cy=\"12\" r=\"10\" fill=\"#000\" opacity=\".3\"/><path d=\"M12 7v10M9 10l3-3 3 3M9 14l3 3 3-3\" stroke=\"#000\" stroke-width=\"1.5\" stroke-linecap=\"round\"/></g></svg></span>
+						<span class="menu-text">Crypto Wallet</span>
+						<i class="menu-arrow"></i>
+					</a>
+					<div class="menu-submenu">
+						<i class="menu-arrow"></i>
+						<ul class="menu-subnav">
+							<li class="menu-item menu-item-parent" aria-haspopup="true"><span class="menu-link"><span class="menu-text">Crypto Wallet</span></span></li>
+							<li class="menu-item <?php if ($activePage==\"crypto-coins\") {echo \"menu-item-active\"; } ?>" aria-haspopup="true">
+								<a href="crypto-coins" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Coin Types</span></a>
+							</li>
+							<li class="menu-item <?php if ($activePage==\"crypto-topup\") {echo \"menu-item-active\"; } ?>" aria-haspopup="true">
+								<a href="crypto-topup" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Top-Up / Deduct</span></a>
+							</li>
+							<li class="menu-item <?php if ($activePage==\"crypto-transactions\") {echo \"menu-item-active\"; } ?>" aria-haspopup="true">
+								<a href="crypto-transactions" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Coin Transactions</span></a>
+							</li>
+							<li class="menu-item <?php if ($activePage==\"crypto-betting-bank\") {echo \"menu-item-active\"; } ?>" aria-haspopup="true">
+								<a href="crypto-betting-bank" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Betting Bank</span></a>
+							</li>
+						</ul>
+					</div>
 				</li>
 				<li class="menu-item menu-item-submenu <?php if(in_array($activePage, $configMenu)){echo "menu-item-open menu-item-here"; }?>" aria-haspopup="true" data-menu-toggle="hover">
 					<a href="javascript:;" class="menu-link menu-toggle">

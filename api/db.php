@@ -13,7 +13,8 @@
 		/* Connect to Database */
 		private function dbConnect() {
 			require("../include/config.php");
-			$this->mysqli = new mysqli($servername, $username, $password, $db);
+			$this->mysqli = new mysqli();
+                        $this->mysqli->real_connect($servername, $username, $password, $db, 3306, '/tmp/mysql.sock');
 			$this->mysqli->query('SET CHARACTER SET utf8');
 		}
 		

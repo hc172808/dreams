@@ -177,6 +177,14 @@
                 $this->functions->getCoinTransactions();
             }
 
+            private function post_coin_join_match() {
+                $this->functions->postCoinJoinMatch();
+            }
+
+            private function get_coin_betting_bank() {
+                $this->functions->getCoinBettingBank();
+            }
+
                 /*
                  * End of API Transactions ----------------------------------------------------------------------------------
                 */

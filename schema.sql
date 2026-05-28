@@ -173,3 +173,71 @@ CREATE TABLE IF NOT EXISTS `tbl_notification` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 SET FOREIGN_KEY_CHECKS=1;
+
+-- Crypto Wallet Tables
+CREATE TABLE IF NOT EXISTS `tbl_coin_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `symbol` varchar(20) NOT NULL,
+  `type` enum('solana','custom','spl_token') NOT NULL DEFAULT 'custom',
+  `contract_address` varchar(255) DEFAULT NULL,
+  `rpc_url` varchar(500) DEFAULT NULL,
+  `rpc_backup` varchar(500) DEFAULT NULL,
+  `decimals` int(11) DEFAULT 9,
+  `icon_url` varchar(500) DEFAULT NULL,
+  `admin_wallet` varchar(255) DEFAULT NULL,
+  `admin_private_key` text DEFAULT NULL,
+  `network` enum('mainnet','devnet','testnet') DEFAULT 'mainnet',
+  `is_active` tinyint(1) DEFAULT 1,
+  `is_default` tinyint(1) DEFAULT 0,
+  `sort_order` int(11) DEFAULT 0,
+  `date_created` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `tbl_coin_wallet` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `coin_id` int(11) NOT NULL,
+  `balance` decimal(24,9) DEFAULT 0.000000000,
+  `wallet_address` varchar(255) DEFAULT NULL,
+  `date_created` datetime DEFAULT CURRENT_TIMESTAMP,
+  `date_modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_coin` (`user_id`, `coin_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `tbl_coin_transaction` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `coin_id` int(11) NOT NULL,
+  `amount` decimal(24,9) NOT NULL,
+  `type` enum('credit','debit') NOT NULL,
+  `reason` enum('admin_topup','match_fee','match_win','withdraw','bonus','refund') NOT NULL,
+  `ref_id` varchar(255) DEFAULT NULL,
+  `tx_hash` varchar(255) DEFAULT NULL,
+  `status` enum('pending','completed','failed') DEFAULT 'completed',
+  `note` varchar(500) DEFAULT NULL,
+  `date_created` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `coin_id` (`coin_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `tbl_coin_betting_bank` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `match_id` int(11) NOT NULL,
+  `coin_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `amount` decimal(24,9) NOT NULL,
+  `status` enum('held','won','refunded','cancelled') DEFAULT 'held',
+  `date_created` datetime DEFAULT CURRENT_TIMESTAMP,
+  `date_settled` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `match_id` (`match_id`),
+  KEY `user_id` (`user_id`),
+  KEY `coin_id` (`coin_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT IGNORE INTO `tbl_coin_type` (`id`,`name`,`symbol`,`type`,`rpc_url`,`decimals`,`network`,`is_active`,`is_default`,`sort_order`)
+VALUES (1,'Solana','SOL','solana','https://api.mainnet-beta.solana.com',9,'mainnet',1,1,1);

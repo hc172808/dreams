@@ -1997,8 +1997,6 @@ class functions extends REST {
         }
         }
         
-}
-?>
     public function getCoinTypes() {
         include "../include/config.php";
         $res = mysqli_query($conn, "SELECT id, name, symbol, type, decimals, icon_url, network FROM tbl_coin_type WHERE is_active=1 ORDER BY sort_order ASC");
@@ -2052,3 +2050,85 @@ class functions extends REST {
         exit;
     }
 
+
+    public function postCoinJoinMatch() {
+        include "../include/config.php";
+        if (!isset($_POST['purchase_key']) || $pur_code != $_POST['purchase_key']) {
+            echo json_encode(['result'=>[['msg'=>'Invalid access attempt!','success'=>'0']]]);
+            exit;
+        }
+        if (!isset($_POST['match_id']) || !isset($_POST['user_id']) || !isset($_POST['coin_id'])) {
+            echo json_encode(['result'=>[['msg'=>'Missing parameters','success'=>'0']]]);
+            exit;
+        }
+        $match_id = intval($_POST['match_id']);
+        $user_id  = intval($_POST['user_id']);
+        $coin_id  = intval($_POST['coin_id']);
+        $now      = date('Y-m-d H:i:s');
+
+        mysqli_autocommit($conn, false);
+        $flag = true;
+
+        $matchRow = mysqli_fetch_assoc(mysqli_query($conn,
+            "SELECT m.*, IFNULL(SUM(CASE WHEN p.parti1 IS NULL THEN 0 ELSE 1 END + CASE WHEN p.parti2 IS NULL THEN 0 ELSE 1 END),0) AS table_joined
+             FROM tbl_match m LEFT JOIN tbl_participants p ON p.match_id=m.id
+             WHERE m.id=$match_id GROUP BY m.id"));
+        if (!$matchRow) {
+            mysqli_rollback($conn);
+            echo json_encode(['result'=>[['msg'=>'Match not found','success'=>'0']]]);
+            exit;
+        }
+        $coin_fee    = floatval($matchRow['coin_fee']);
+        $table_joined = intval($matchRow['table_joined']);
+        if ($coin_fee <= 0) {
+            mysqli_rollback($conn);
+            echo json_encode(['result'=>[['msg'=>'This match does not support coin betting','success'=>'0']]]);
+            exit;
+        }
+        $walRow = mysqli_fetch_assoc(mysqli_query($conn,
+            "SELECT balance FROM tbl_coin_wallet WHERE user_id=$user_id AND coin_id=$coin_id"));
+        $balance = $walRow ? floatval($walRow['balance']) : 0;
+        if ($balance < $coin_fee) {
+            mysqli_rollback($conn);
+            echo json_encode(['result'=>[['msg'=>"Insufficient coin balance. You have $balance, need $coin_fee",'success'=>'0']]]);
+            exit;
+        }
+        if (!mysqli_query($conn, "UPDATE tbl_coin_wallet SET balance=balance-$coin_fee, date_modified='$now' WHERE user_id=$user_id AND coin_id=$coin_id")) $flag=false;
+        if (!mysqli_query($conn, "INSERT INTO tbl_coin_transaction (user_id,coin_id,amount,type,reason,ref_id,note,date_created) VALUES ($user_id,$coin_id,$coin_fee,'debit','match_fee','$match_id','Join match #$match_id','$now')")) $flag=false;
+        if (!mysqli_query($conn, "INSERT INTO tbl_coin_betting_bank (match_id,coin_id,user_id,amount,status,date_created) VALUES ($match_id,$coin_id,$user_id,$coin_fee,'held','$now')")) $flag=false;
+        if (!mysqli_query($conn, "UPDATE tbl_match SET coin_id=$coin_id WHERE id=$match_id")) $flag=false;
+        if ($table_joined == 0) {
+            if (!mysqli_query($conn, "UPDATE tbl_participants SET parti1=$user_id, parti1_join_time='$now' WHERE match_id=$match_id")) $flag=false;
+            if (!mysqli_query($conn, "UPDATE tbl_match SET play_time=".(time()+180)." WHERE id=$match_id AND status=1")) $flag=false;
+        } else {
+            if (!mysqli_query($conn, "UPDATE tbl_participants SET parti2=$user_id, parti2_join_time='$now' WHERE match_id=$match_id")) $flag=false;
+            if (!mysqli_query($conn, "UPDATE tbl_match SET status=2 WHERE id=$match_id AND status=1")) $flag=false;
+        }
+        if ($flag) {
+            mysqli_commit($conn);
+            echo json_encode(['result'=>[['msg'=>'Joined match successfully with coins','success'=>'1']]]);
+        } else {
+            mysqli_rollback($conn);
+            echo json_encode(['result'=>[['msg'=>'Failed to join match: '.mysqli_error($conn),'success'=>'0']]]);
+        }
+        exit;
+    }
+
+    public function getCoinBettingBank() {
+        include "../include/config.php";
+        if (!isset($_POST['purchase_key']) || $pur_code != $_POST['purchase_key']) {
+            echo json_encode(['result'=>[['msg'=>'Unauthorized','success'=>'0']]]);
+            exit;
+        }
+        $user_id = intval($_POST['user_id'] ?? 0);
+        $rows = [];
+        $res = mysqli_query($conn, "SELECT b.*, c.symbol, c.name as coin_name
+            FROM tbl_coin_betting_bank b
+            JOIN tbl_coin_type c ON c.id=b.coin_id
+            WHERE b.user_id=$user_id ORDER BY b.id DESC LIMIT 50");
+        while ($r = mysqli_fetch_assoc($res)) $rows[] = $r;
+        echo json_encode(['result'=>[['bets'=>$rows,'success'=>'1']]]);
+        exit;
+    }
+}
+?>
