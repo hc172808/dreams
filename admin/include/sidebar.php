@@ -3,7 +3,7 @@
 
         $masterMenu = array('category','city','area','banner');
         $configMenu = array('about','customer-support','app-configuration','app-update','privacy-policy', 'legal-policy', 'game-setting', 'rules', 'faq','terms-and-condition');
-        $cryptoMenu = array('crypto-coins','crypto-topup','crypto-transactions','crypto-betting-bank','coin-match-list','create-coin-match');
+        $cryptoMenu = array('crypto-coins','crypto-topup','crypto-transactions','crypto-betting-bank','coin-match-list','create-coin-match','coin-leaderboard','player-wallet');
 ?>
 <div class="aside aside-left aside-fixed d-flex flex-column flex-row-auto" id="kt_aside">
         <!--begin::Brand-->
@@ -187,6 +187,9 @@
                                                         </li>
                                                         <li class="menu-item <?php if ($activePage==\"coin-leaderboard\") {echo \"menu-item-active\"; } ?>" aria-haspopup="true">
                                                                 <a href="coin-leaderboard" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">🏆 Leaderboard</span></a>
+                                                        </li>
+                                                        <li class="menu-item <?php if ($activePage==\"player-wallet\") {echo \"menu-item-active\"; } ?>" aria-haspopup="true">
+                                                                <a href="player-wallet" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">👤 Player Wallets</span></a>
                                                         </li>
                                                 </ul>
                                         </div>
