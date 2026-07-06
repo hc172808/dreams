@@ -185,6 +185,9 @@
                                                         <li class="menu-item <?php if ($activePage==\"coin-match-list\"||$activePage==\"create-coin-match\") {echo \"menu-item-active\"; } ?>" aria-haspopup="true">
                                                                 <a href="coin-match-list" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Coin Matches</span></a>
                                                         </li>
+                                                        <li class="menu-item <?php if ($activePage==\"coin-leaderboard\") {echo \"menu-item-active\"; } ?>" aria-haspopup="true">
+                                                                <a href="coin-leaderboard" class="menu-link"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">🏆 Leaderboard</span></a>
+                                                        </li>
                                                 </ul>
                                         </div>
                                 </li>

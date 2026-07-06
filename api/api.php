@@ -185,6 +185,10 @@
                 $this->functions->getCoinBettingBank();
             }
 
+            private function get_coin_leaderboard() {
+                $this->functions->getCoinLeaderboard();
+            }
+
                 /*
                  * End of API Transactions ----------------------------------------------------------------------------------
                 */

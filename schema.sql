@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
 
 -- Default admin user: username=admin, password=admin123 (sha1)
 INSERT INTO `tbl_user` (`id`, `full_name`, `username`, `email`, `password`, `is_active`, `is_block`, `user_type`) VALUES
-(1, 'Administrator', 'admin', 'admin@dreamludo.com', '6367c48dd193d56ea7b0baad25b19455e529f5ee', 1, 0, 0);
+(1, 'Administrator', 'admin', 'admin@dreamludo.com', 'f865b53623b121fd34ee5426c792e5c33af8c227', 1, 0, 0);
 
 
 CREATE TABLE IF NOT EXISTS `tbl_match` (

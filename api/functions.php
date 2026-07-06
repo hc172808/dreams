@@ -2114,6 +2114,69 @@ class functions extends REST {
         exit;
     }
 
+    public function getCoinLeaderboard() {
+        include "../include/config.php";
+        if (!isset($_GET['purchase_key']) || $pur_code != $_GET['purchase_key']) {
+            echo json_encode(['result'=>[['msg'=>'Unauthorized','success'=>'0']]]);
+            exit;
+        }
+        $coin_id = isset($_GET['coin_id']) ? (int)$_GET['coin_id'] : 0;
+        $period  = isset($_GET['period'])  ? $_GET['period']        : 'all';
+        $limit   = isset($_GET['limit'])   ? min((int)$_GET['limit'], 100) : 20;
+        if ($limit < 1) $limit = 20;
+
+        $periodWhere = "";
+        if ($period === 'today') $periodWhere = "AND DATE(t.date_created) = CURDATE()";
+        elseif ($period === 'week')  $periodWhere = "AND t.date_created >= DATE_SUB(NOW(), INTERVAL 7 DAY)";
+        elseif ($period === 'month') $periodWhere = "AND t.date_created >= DATE_SUB(NOW(), INTERVAL 30 DAY)";
+
+        $coinWhere = $coin_id ? "AND t.coin_id=$coin_id" : "";
+
+        $sql = "
+            SELECT
+                u.id AS user_id,
+                u.full_name,
+                u.username,
+                u.profile_img,
+                c.id AS coin_id,
+                c.name AS coin_name,
+                c.symbol AS coin_symbol,
+                COUNT(t.id)   AS matches_won,
+                SUM(t.amount) AS total_won,
+                MAX(t.amount) AS biggest_win,
+                MAX(t.date_created) AS last_win
+            FROM tbl_coin_transaction t
+            JOIN tbl_user u      ON u.id = t.user_id
+            JOIN tbl_coin_type c ON c.id = t.coin_id
+            WHERE t.type='credit' AND t.reason='match_win' AND t.status='completed'
+              $coinWhere $periodWhere
+            GROUP BY u.id, c.id
+            ORDER BY total_won DESC
+            LIMIT $limit
+        ";
+        $res = mysqli_query($conn, $sql);
+        $rows = [];
+        $rank = 1;
+        while ($r = mysqli_fetch_assoc($res)) {
+            $rows[] = [
+                'rank'        => $rank++,
+                'user_id'     => $r['user_id'],
+                'full_name'   => $r['full_name'],
+                'username'    => $r['username'],
+                'profile_img' => $r['profile_img'],
+                'coin_id'     => $r['coin_id'],
+                'coin_name'   => $r['coin_name'],
+                'coin_symbol' => $r['coin_symbol'],
+                'matches_won' => (int)$r['matches_won'],
+                'total_won'   => $r['total_won'],
+                'biggest_win' => $r['biggest_win'],
+                'last_win'    => $r['last_win'],
+            ];
+        }
+        echo json_encode(['result'=>[['leaderboard'=>$rows,'period'=>$period,'success'=>'1']]]);
+        exit;
+    }
+
     public function getCoinBettingBank() {
         include "../include/config.php";
         if (!isset($_POST['purchase_key']) || $pur_code != $_POST['purchase_key']) {

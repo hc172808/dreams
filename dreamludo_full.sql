@@ -117,7 +117,7 @@ INSERT INTO `tbl_user`
   (`id`,`full_name`,`username`,`email`,`password`,`is_active`,`is_block`,`user_type`)
 VALUES
   (1,'Administrator','admin','admin@dreamludo.com',
-   '6367c48dd193d56ea7b0baad25b19455e529f5ee',1,0,0)
+   'f865b53623b121fd34ee5426c792e5c33af8c227',1,0,0)
 ON DUPLICATE KEY UPDATE `id`=`id`;
 
 
