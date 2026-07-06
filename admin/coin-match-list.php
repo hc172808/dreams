@@ -221,7 +221,6 @@ $statusColors = [1=>'primary',2=>'success',3=>'secondary',4=>'danger'];
 <?php include('include/footer.php'); ?>
 </div></div></div>
 
-<?php include('include/head-section-script.php'); ?>
 <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
 <script>
 $('#coinMatchTable').DataTable({

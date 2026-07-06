@@ -286,7 +286,6 @@ if (isset($_GET['uid'])) {
 <?php include('include/footer.php'); ?>
 </div></div></div>
 
-<?php include('include/head-section-script.php'); ?>
 <script>
 // Map coin id → symbol for suffix labels
 var coinSymbols = {
