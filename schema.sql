@@ -191,6 +191,7 @@ CREATE TABLE IF NOT EXISTS `tbl_coin_type` (
   `is_active` tinyint(1) DEFAULT 1,
   `is_default` tinyint(1) DEFAULT 0,
   `sort_order` int(11) DEFAULT 0,
+  `low_balance_threshold` decimal(24,9) DEFAULT 0.000000000 COMMENT 'Alert when user wallet drops below this',
   `date_created` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
